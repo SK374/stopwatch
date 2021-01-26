@@ -8,9 +8,11 @@ class StopwatchPage extends StatefulWidget {
 
 class _StopwatchPageState extends State<StopwatchPage> {
   bool startStop = true;
+
   bool reset = true;
   String stopDispTime = '00:00';
   var stopwatch = Stopwatch();
+
   final duration = const Duration(milliseconds: 1);
 
   void startTimer() {
@@ -23,7 +25,7 @@ class _StopwatchPageState extends State<StopwatchPage> {
     }
     setState(() {
       stopDispTime = (stopwatch.elapsed.inSeconds).toString().padLeft(2, '0') + ':' +
-          (stopwatch.elapsed.inMilliseconds / 10 % 100).truncate().toString().padLeft(0, '0');
+          (stopwatch.elapsed.inMilliseconds / 10 % 100).truncate().toString().padLeft(2, '0');
     });
   }
 
